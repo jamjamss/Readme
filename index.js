@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const fs = require('fs');
 
 inquirer
     .prompt([
@@ -8,18 +9,60 @@ inquirer
             message: "Name of project"
         }, 
         {
-            type: "list",
-            name: "description and installation",
-            message: "testing this",
+            type: "input",
+            name: "description",
+            message: "Describe this project",
+           
+        },
+        {
+            type: "input",
+            name: "Installation instruction",
+            message: "Installations",
+           
+        },
+        {
+            type: "input",
+            name: "Usage information",
+            message: "Usage",
+           
+        },
+        {
+            type: "input",
+            name: "Contribution guidelines",
+            message: "Contribution",
+           
+        },
+        {
+            type: "input",
+            name: "Test instruction",
+            message: "Test",
+           
+        },
+        {
+            type: "checkbox",
+            name: "License",
+            message: "License",
             choices: [
-                "description",
-                "installation",
-                "etc"
+
+                {
+                    name: "MIT", 
+                },
+                {
+                    name:"ISC"
+                }, 
+                {
+                    name: "Apache"
+                },
+                { 
+                    name:"Unlicense"
+                }
             ]
+          
         }
     ])
     .then(response => {
-        console.log("correct!")
+        console.log("correct!", response)
+        fs.writeFile("readme.json", JSON.stringify(response), {}, () => console.log("file written!"))
 
     })
     .catch(err => {
