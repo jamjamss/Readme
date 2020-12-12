@@ -6,6 +6,16 @@ inquirer
             type: "input",
             name: "ReadMe",
             message: "Name of project"
+        }, 
+        {
+            type: "list",
+            name: "description and installation",
+            message: "testing this",
+            choices: [
+                "description",
+                "installation",
+                "etc"
+            ]
         }
     ])
     .then(response => {
@@ -13,6 +23,6 @@ inquirer
 
     })
     .catch(err => {
-        console.log("try again")
+        console.log("try again", err)
 
     })
