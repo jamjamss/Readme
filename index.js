@@ -5,7 +5,7 @@ inquirer
     .prompt([
         {
             type: "input",
-            name: "ReadMe",
+            name: "Title",
             message: "Name of project"
         }, 
         {
@@ -62,7 +62,7 @@ inquirer
     ])
     .then(response => {
         console.log("correct!", response)
-        fs.writeFile("readme.json", JSON.stringify(response), {}, () => console.log("file written!"))
+        fs.writeFile("readme.json", JSON.stringify(response, null, 4), {}, () => console.log("file written!"))
 
     })
     .catch(err => {
