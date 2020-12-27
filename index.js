@@ -3,7 +3,7 @@ const fs = require("fs");
 const util = require("util");
 
 // Internal modules
-const generateMarkdown = require("./generatemarkdownfile");
+const generatemarkdownfile = require("./generatemarkdownfile");
 
 
 const promptUser = 
@@ -11,7 +11,7 @@ const promptUser =
     [
         {
             type: "input",
-            name: "Title",
+            name: "title",
             message: "Name of project"
         },
         {
@@ -22,25 +22,25 @@ const promptUser =
         },
         {
             type: "input",
-            name: "Installation instruction",
+            name: "installation",
             message: "Installations",
 
         },
         {
             type: "input",
-            name: "Usage information",
+            name: "usage",
             message: "Usage",
 
         },
         {
             type: "input",
-            name: "Contribution guidelines",
+            name: "contributions",
             message: "Contribution",
 
         },
         {
             type: "input",
-            name: "Test instruction",
+            name: "tests",
             message: "Test",
 
         },
@@ -64,7 +64,18 @@ const promptUser =
                 }
             ]
 
-        }
+        },
+        {
+            type: "input",
+            name: "github",
+            message: "Please enter you Gibhub Username",
+          },
+          {
+            type: "input",
+            name: "email",
+            message: "Please enter your email",
+          },
+        
     ]
 
 function writeToFile(fileName, data) {
@@ -77,7 +88,7 @@ function writeToFile(fileName, data) {
 
 function init() {
     inquirer.prompt(promptUser).then((data) => {
-        let markDown = generateMarkdown(data);
+        let markDown = generatemarkdownfile(data);
         let license = "";
 
         console.log(markDown);

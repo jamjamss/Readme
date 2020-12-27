@@ -1,5 +1,5 @@
 // function to generate markdown for README
-function generateMarkdown(data) {
+function generatemarkdownfile(data) {
     return `# ${data.title}
      <h1 align="center">${data.title} </h1>
     
@@ -33,4 +33,4 @@ function generateMarkdown(data) {
         `;
   }
   
-  module.exports = generateMarkdown;
+  module.exports = generatemarkdownfile;
